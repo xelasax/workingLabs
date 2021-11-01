@@ -1,8 +1,6 @@
 package io.turntabl.firstAssignment;
 
-import io.turntabl.firstAssignment.domain.AdvancedGardeningCourse;
 import io.turntabl.firstAssignment.domain.Course;
-import io.turntabl.firstAssignment.domain.PhysicsCourse;
 import io.turntabl.firstAssignment.domain.Student;
 import io.turntabl.firstAssignment.services.StudentGenerator;
 import io.turntabl.firstAssignment.utils.StudentYear;
@@ -13,11 +11,13 @@ import java.util.stream.Collectors;
 public class Main {
 
     public static void main(String[] args) {
-        final Course introToProgramming = new Course(StudentYear.FIRST_YEAR);
+        final Course introToProgramming = new Course(StudentYear.FIRST_YEAR, Course.CourseType.PROGRAMMING);
 
         List<Student> firstYearStudents = StudentGenerator.generateStudents()
                         .stream()
-                        .filter(student -> student.getStudentYear().equals(introToProgramming.getCourseYear()))
+                        .filter(student -> student.getStudentYear()
+                                .equals(introToProgramming.getCourseYear())
+                        )
                         .collect(Collectors.toList());
 
         introToProgramming.setStudents(firstYearStudents);
@@ -27,7 +27,7 @@ public class Main {
         System.out.println(introToProgramming);
 
 
-        AdvancedGardeningCourse advancedGardeningCourse = new AdvancedGardeningCourse();
+        Course advancedGardeningCourse = new Course(StudentYear.FOURTH_YEAR, Course.CourseType.GARDENING);
 
         List<Student> thirdAndFourthYearStudents = StudentGenerator.generateStudents().stream()
                 .filter(student -> student.getStudentYear().equals(StudentYear.FOURTH_YEAR) || student.getStudentYear().equals(StudentYear.THIRD_YEAR))
@@ -39,7 +39,7 @@ public class Main {
         System.out.println("======================================================");
         System.out.println(advancedGardeningCourse);
 
-        PhysicsCourse physicsCourse = new PhysicsCourse();
+        Course physicsCourse = new Course(StudentYear.FOURTH_YEAR, Course.CourseType.PHYSICS);
         String vowels = "aeiou";
         List<Student> physicsFourthYearStudents = StudentGenerator.generateStudents().stream()
 
