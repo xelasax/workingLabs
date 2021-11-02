@@ -1,7 +1,6 @@
 import io.turntabl.firstAssignment.Bag;
 import io.turntabl.firstAssignment.domain.*;
-import io.turntabl.firstAssignment.services.StudentGenerator;
-import io.turntabl.firstAssignment.utils.StudentYear;
+import io.turntabl.firstAssignment.utils.Level;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -14,8 +13,8 @@ public class DriverTest {
     Student student2;
     @BeforeEach
     void setUp(){
-        student = new NaughtyStudent("12123123","Alexander",StudentYear.FOURTH_YEAR,List.of(1.1,1.2,1.1,1.0));
-        student2 = new Student("12123173","John",StudentYear.FOURTH_YEAR,List.of(1.1,1.2,1.1,1.0));
+        student = new NaughtyStudent("12123123","Alexander", Level.FOURTH_YEAR,List.of(1.1,1.2,1.1,1.0));
+        student2 = new Student("12123173","John", Level.FOURTH_YEAR,List.of(1.1,1.2,1.1,1.0));
 
     }
 
@@ -61,7 +60,7 @@ public class DriverTest {
     }
 
     @Test
-    @DisplayName("Remove All Elements To Bag Of Students")
+    @DisplayName("Using Bag for Students")
     void clearStudentsToBag(){
         Bag<Student> studentBag = new Bag<>();
         studentBag.add(student);
@@ -74,12 +73,12 @@ public class DriverTest {
     }
 
     @Test
-    @DisplayName("Add Elements To Bag Of Students")
+    @DisplayName("Using Bag for lecturers")
     void addLecturerToBag(){
         Bag<Lecturer> lecturerBag = new Bag<>();
-        lecturerBag.add(new Lecturer("Denis", new Course(StudentYear.FOURTH_YEAR, Course.CourseType.PROGRAMMING)));
-        lecturerBag.add(new Lecturer("Denis", new Course(StudentYear.FOURTH_YEAR, Course.CourseType.PROGRAMMING)));
-        lecturerBag.add(new Lecturer("Denis", new Course(StudentYear.FOURTH_YEAR, Course.CourseType.PROGRAMMING)));
+        lecturerBag.add(new Lecturer("Denis", new Course(Level.FOURTH_YEAR, Course.CourseType.PROGRAMMING)));
+        lecturerBag.add(new Lecturer("Denis", new Course(Level.FOURTH_YEAR, Course.CourseType.PROGRAMMING)));
+        lecturerBag.add(new Lecturer("Denis", new Course(Level.FOURTH_YEAR, Course.CourseType.PROGRAMMING)));
 
         Assertions.assertEquals(3, lecturerBag.getBag().size());
 

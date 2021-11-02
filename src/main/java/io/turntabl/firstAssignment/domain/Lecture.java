@@ -7,7 +7,7 @@ import java.util.OptionalDouble;
 public class Lecture {
 
     private Lecturer lecturer;
-    private  List<Student> students;
+    private  List<Student> students = new ArrayList<>();
 
     public Lecture(List<Student> students) {
         this.students = students;
@@ -35,7 +35,7 @@ public class Lecture {
     }
 
     public void enter(Student student){
-        students.add(student);
+       students.add(student);
     }
 
     public OptionalDouble getHighestAverageGrade(){

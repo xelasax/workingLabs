@@ -1,23 +1,25 @@
 package io.turntabl.firstAssignment.domain;
 
-import io.turntabl.firstAssignment.utils.StudentYear;
+import io.turntabl.firstAssignment.services.Nameable;
+import io.turntabl.firstAssignment.utils.Level;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.DoubleStream;
 
-public class Student {
+public class Student implements Nameable,HasLevel {
     private String id;
     private String name;
-    private StudentYear studentYear;
+    private Level studentYear;
     private List<Double> grades;
 
-    public Student(String id, String name, StudentYear studentYear) {
+    public Student(String id, String name, Level studentYear) {
         this.id = id;
         this.name = name;
         this.studentYear = studentYear;
     }
 
-    public Student(String id, String name, StudentYear studentYear, List<Double> grades) {
+    public Student(String id, String name, Level studentYear, List<Double> grades) {
         this.id = id;
         this.name = name;
         this.studentYear = studentYear;
@@ -32,9 +34,16 @@ public class Student {
         this.id = id;
     }
 
+    public DoubleStream studentGrades(){
+        return grades.stream().mapToDouble(value -> value);
+    }
+
+    @Override
     public String getName() {
         return name;
     }
+
+
 
     public void setName(String name) {
         this.name = name;
@@ -48,16 +57,21 @@ public class Student {
         this.grades = grades;
     }
 
-    public StudentYear getStudentYear() {
+    public Level getStudentYear() {
         return studentYear;
     }
 
-    public void setStudentYear(StudentYear studentYear) {
+    public void setStudentYear(Level studentYear) {
         this.studentYear = studentYear;
     }
 
     public double getAverageGrade(){
         return grades.stream().mapToDouble(mark -> mark).average().orElse(0);
+    }
+
+    @Override
+    public Level getLevel() {
+        return studentYear;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package io.turntabl.firstAssignment.domain;
 
-import io.turntabl.firstAssignment.utils.StudentYear;
+import io.turntabl.firstAssignment.utils.Level;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ public class Course {
     private final CourseType courseType;
     private Lecturer lecturer;
     private List<Student> students;
-    private StudentYear courseYear;
+    private Level courseYear;
 
-    public Course(StudentYear courseYear, CourseType courseType) {
+    public Course(Level courseYear, CourseType courseType) {
         this.courseYear = courseYear;
         this.courseType = courseType;
     }
@@ -31,11 +31,11 @@ public class Course {
         this.students = students;
     }
 
-    public StudentYear getCourseYear() {
+    public Level getCourseYear() {
         return courseYear;
     }
 
-    public void setCourseYear(StudentYear courseYear) {
+    public void setCourseYear(Level courseYear) {
         this.courseYear = courseYear;
     }
 

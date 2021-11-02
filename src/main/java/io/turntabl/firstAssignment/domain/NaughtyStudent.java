@@ -1,17 +1,17 @@
 package io.turntabl.firstAssignment.domain;
 
-import io.turntabl.firstAssignment.utils.StudentYear;
+import io.turntabl.firstAssignment.utils.Level;
 
 import java.util.List;
 
 
 public class NaughtyStudent extends Student{
 
-    public NaughtyStudent(String id, String name, StudentYear studentYear) {
+    public NaughtyStudent(String id, String name, Level studentYear) {
         super(id, name, studentYear);
     }
 
-    public NaughtyStudent(String id, String name, StudentYear studentYear, List<Double> grades) {
+    public NaughtyStudent(String id, String name, Level studentYear, List<Double> grades) {
         super(id, name, studentYear, grades);
     }
 
