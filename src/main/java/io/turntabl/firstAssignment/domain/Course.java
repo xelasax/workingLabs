@@ -5,7 +5,7 @@ import io.turntabl.firstAssignment.utils.StudentYear;
 import java.util.List;
 
 public class Course {
-    private CourseType courseType;
+    private final CourseType courseType;
     private Lecturer lecturer;
     private List<Student> students;
     private StudentYear courseYear;
@@ -37,6 +37,10 @@ public class Course {
 
     public void setCourseYear(StudentYear courseYear) {
         this.courseYear = courseYear;
+    }
+
+    public CourseType getCourseType() {
+        return courseType;
     }
 
     @Override

@@ -40,12 +40,11 @@ public class Main {
         System.out.println(advancedGardeningCourse);
 
         Course physicsCourse = new Course(StudentYear.FOURTH_YEAR, Course.CourseType.PHYSICS);
-        String vowels = "aeiou";
-        List<Student> physicsFourthYearStudents = StudentGenerator.generateStudents().stream()
 
+        List<Student> physicsFourthYearStudents = StudentGenerator.generateStudents().stream()
                 .filter(student -> student.getStudentYear().equals(physicsCourse.getCourseYear()))
-                .filter(student -> vowels.contains(student.getName().toLowerCase().substring(0,1)))
-                .collect(Collectors.toList());
+                .filter(student -> "aeiou".contains(student.getName().substring(0,1).toLowerCase()))
+                .toList();
 
         System.out.println("======================================================");
         System.out.println("=====        PHYSICS GARDENING COURSE            ====");
